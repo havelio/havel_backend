@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils import timezone
 
-from markdownx.models import MarkdownxField
-
 
 class Biography(models.Model):
     title = models.CharField(max_length=255)
@@ -11,7 +9,7 @@ class Biography(models.Model):
     url_target = models.CharField(max_length=256, blank=True)
     position = models.PositiveIntegerField(blank=True, null=True)
     short_description = models.TextField(default='', blank=True)
-    description = MarkdownxField(default='', blank=True, help_text="description using markdown writing")
+    description = models.TextField()
     created = models.DateTimeField(default=timezone.localtime)
 
     def __str__(self):

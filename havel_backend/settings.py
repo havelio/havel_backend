@@ -28,7 +28,7 @@ SECRET_KEY = '%_@&iglp3%075mb0iwpi39pp10hi0_5y9=7=!8!rg61)uz9pv5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['havelio.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
