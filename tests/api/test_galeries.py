@@ -1,4 +1,3 @@
-from django.core.files import File
 from django.urls import reverse
 
 from havel_backend.apps.galeries.models import Galery
