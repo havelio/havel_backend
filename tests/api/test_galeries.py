@@ -1,5 +1,3 @@
-import json
-
 from django.core.files import File
 from django.urls import reverse
 

@@ -31,6 +31,6 @@ script:
   - export CHANGED_FILES=$(git diff --name-only --diff-filter=ACM $(git merge-base HEAD origin/master) | grep "\.py" | grep -v "settings" | grep -v "migrations")
   - if [ -n "${CHANGED_FILES}" ]; then
       echo "Checking ..." $CHANGED_FILES;
-      /home/travis/virtualenv/python3.6.7/bin/flake8 --exclude migrations,libraries,settings.py,*.yml,*.txt,*.html,*.js,*.css --ignore=E501,W503 $CHANGED_FILES;
+      /home/travis/virtualenv/python3.6.7/bin/flake8 --exclude migrations,settings.py,*.yml,*.txt,*.html,*.js,*.css --ignore=E501,W503 $CHANGED_FILES;
     fi
   
