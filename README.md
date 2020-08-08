@@ -1,2 +1,2 @@
 # havel_backend
-This is backend for HavelApp (comming soon)
+This is backend for HavelApp (coming soon)
