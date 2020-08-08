@@ -8,10 +8,9 @@ from tests import TestCase
 class GaleryAPITest(TestCase):
 
     def test_index(self):
-        file = File(open('media/tests.jpg', 'rb'))
         galery = Galery.objects.create(
             title='First banner',
-            image=file,
+            image=self.get_file(),
             position=1,
             description='# Description',
             short_description='Short description',
