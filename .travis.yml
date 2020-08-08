@@ -1,0 +1,36 @@
+language: python
+
+python:
+  - "3.6"
+
+env:
+  - DJANGO=2.2.7
+
+install:
+  - python3 -m venv venv
+  - . venv/bin/activate
+  - python3 -m pip install --upgrade pip
+  - python3 -m pip install tblib  # for parallel test traceback
+  - python3 -m pip install -r requirements.txt 
+  - python3 -m pip install flake8 django-stubs
+
+cache:
+  pip: true
+
+directories:
+  - $HOME/usr/
+
+before_script:
+  - python manage.py collectstatic
+  - git remote set-branches --add origin master
+  - git fetch
+
+script:
+  - . venv/bin/activate
+  - python manage.py test --parallel -v 3
+  - export CHANGED_FILES=$(git diff --name-only --diff-filter=ACM $(git merge-base HEAD origin/master) | grep "\.py" | grep -v "settings" | grep -v "migrations")
+  - if [ -n "${CHANGED_FILES}" ]; then
+      echo "Checking ..." $CHANGED_FILES;
+      /home/travis/virtualenv/python3.6.7/bin/flake8 --exclude migrations,libraries,settings.py,*.yml,*.txt,*.html,*.js,*.css --ignore=E501,W503 $CHANGED_FILES;
+    fi
+  
