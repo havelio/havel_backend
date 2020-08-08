@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from os import path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SETTINGS_DIR = path.dirname(__file__)
+PROJECT_ROOT = path.dirname(SETTINGS_DIR)
+PROJECT_NAME = path.basename(PROJECT_ROOT)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -113,9 +116,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-# default static files settings for PythonAnywhere.
-# see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = '/home/havelio/havel_backend/media'
-MEDIA_URL = '/media/'
-STATIC_ROOT = '/home/havelio/havel_backend/static'
+STATIC_ROOT = os.path.join(SETTINGS_DIR, 'static')
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
