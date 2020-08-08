@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # models
+    'havel_backend.apps.biographies',
+    'havel_backend.apps.galeries',
+    'havel_backend.apps.tags',
+
 ]
 
 MIDDLEWARE = [
