@@ -1,7 +1,7 @@
 havel_backend
 =============
 
-This is backend for HavelApp (coming soon)
+This is backend for HavelApp
 Created with Django and uploaded to http://pythonanywhere.com/
 
 
