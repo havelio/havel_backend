@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
-
+from .views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(('havel_backend.api.urls', 'api'), namespace='api')),
+    path('', home, name='home')
 ]
